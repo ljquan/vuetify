@@ -24,7 +24,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
+    - name: Print env variable names
+      run: |
+        echo "GITHUB_TOKEN is ${{ (env.GITHUB_TOKEN && 'set') || 'not set' }}"
+        echo "CROWDIN_PROJECT_ID is ${{ (env.CROWDIN_PROJECT_ID && 'set') || 'not set' }}"
+        echo "CROWDIN_PERSONAL_TOKEN is ${{ (env.CROWDIN_PERSONAL_TOKEN && 'set') || 'not set' }}"
+        echo "secrets is ${{secrets}}"
+        echo "env is ${{env}}"
     - name: Checkout
       uses: actions/checkout@v4
 
